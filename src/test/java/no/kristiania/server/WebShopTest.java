@@ -1,5 +1,6 @@
 package no.kristiania.server;
 
+import jakarta.json.Json;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +37,25 @@ class WebShopTest {
                 .asString(StandardCharsets.UTF_8)
                 .contains("[{\"name\":\"Laptop\",\"category\":\"Computers\"");
     }
+    @Test
+    public void PostRequestAddProductTest() throws Exception {
+        var postConnection = openConnection("/api/products");
+        postConnection.setRequestMethod("POST");
+        postConnection.setDoOutput(true);
+        postConnection.getOutputStream().write(Json.createObjectBuilder()
+                .add("name","testlaptop")
+                .add("category","pc")
+                .add("img","")
+                .add("description","a laptop")
+                .add("price",299).add("stock",100).toString().getBytes(StandardCharsets.UTF_8)
 
+        );
+        assertThat(postConnection.getResponseCode()).as("check if POST worked").isEqualTo(200);
+        var getConnection = openConnection("/api/products");
+        assertThat(getConnection.getInputStream())
+                .asString(StandardCharsets.UTF_8)
+                .contains("[{\"name\":\"testlaptop\"");
+    }
 
 
     private HttpURLConnection openConnection(String spec) throws IOException {
