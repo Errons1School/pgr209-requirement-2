@@ -11,12 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class WebShopTest {
+
     private WebShop server;
-
-    private HttpURLConnection openConnection(String spec) throws IOException {
-        return (HttpURLConnection) new URL(server.getURL(), spec).openConnection();
-    }
-
 
     @Test
     public void getStatusCode200Test() throws Exception {
@@ -27,4 +23,11 @@ class WebShopTest {
         assertThat(connection.getResponseCode()).as("check for 200").isEqualTo(200);
 
     }
+
+
+
+    private HttpURLConnection openConnection(String spec) throws IOException {
+        return (HttpURLConnection) new URL(server.getURL(), spec).openConnection();
+    }
+
 }
