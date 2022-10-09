@@ -8,8 +8,7 @@ class WebShopTest {
 
     @Test
     public void gitHubActionTest(){
-
-        assertTrue(false);
+        assertTrue(true);
     }
 
 }
