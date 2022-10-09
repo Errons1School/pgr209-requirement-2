@@ -42,18 +42,17 @@ class WebShopTest {
         var postConnection = openConnection("/api/products");
         postConnection.setRequestMethod("POST");
         postConnection.setDoOutput(true);
-        postConnection.getOutputStream().write(
-                Json.createObjectBuilder()
-                .add("name","test-laptop")
+        postConnection.getOutputStream().write(Json.createObjectBuilder()
+                .add("name","testlaptop")
                 .add("category","pc")
                 .add("img","")
-                .add("description","a laptop")
+                .add("description","alaptop")
                 .add("price",299)
                 .add("stock",100).build()
                 .toString()
                 .getBytes(StandardCharsets.UTF_8)
-        );
 
+        );
         assertThat(postConnection.getResponseCode())
                 .as("check if POST worked")
                 .isEqualTo(200);
@@ -62,7 +61,7 @@ class WebShopTest {
         var getConnection = openConnection("/api/products");
         assertThat(getConnection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
-                .contains("test-laptop");
+                .contains("testlaptop");
     }
 
 
