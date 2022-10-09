@@ -1,9 +1,11 @@
 package no.kristiania.server;
 
-import jakarta.annotation.Resources;
+
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
+
+import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +22,9 @@ public class WebShop {
         var resources = Resource.newClassPathResource("/");
 
         var webAppContext = new WebAppContext(resources, "/");
+        var servletHolder =webAppContext.addServlet(ServletContainer.class,"/api/*");
+        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.sever");
+
         server.setHandler(webAppContext);
     }
 
