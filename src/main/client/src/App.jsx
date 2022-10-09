@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
 import './App.css'
-import {HashRouter, Link, Route, Routes} from "react-router-dom";
+import {HashRouter, Link, Route, Routes, useNavigate} from "react-router-dom";
 
 function FrontPage() {
     return (
@@ -13,14 +13,31 @@ function FrontPage() {
 }
 
 function ListAllProduct() {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(async () => {
+            const res = await fetch("/api/products");
+            setProducts(await res.json());
+            setLoading(false);
+        },[]);
+
+    if (loading) {
+        return (
+            <div>Loading...</div>
+        )
+    }
+
     return (
         <div>
             <h1>Here are the shop!</h1>
+            <ul>{products.map(p => <li>{p.name}</li>)}</ul>
         </div>
     )
 }
 
 function AddProduct() {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
     const [img, setImg] = useState("");
@@ -37,6 +54,8 @@ function AddProduct() {
                "Content-Type": "application/json"
             }
         });
+
+        navigate("..");
     }
 
     return (
