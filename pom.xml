@@ -19,6 +19,57 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <!-- add jetty ontop of socket -->
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>11.0.12</version>
+        </dependency>
+        <dependency>
+            <!-- add jakarta.json API parsing (and using parsson as implamentatio  -->
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <!-- use parsson as implamentation for Jakarta.json API -->
+            <groupId>org.eclipse.parsson</groupId>
+            <artifactId>parsson</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <!-- add logevents as implementation of the logging API-->
+            <groupId>org.logevents</groupId>
+            <artifactId>logevents</artifactId>
+            <version>0.3.3</version>
+        </dependency>
+        <dependency>
+            <!-- add Junit testing to the project -->
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- add asertJ for asserting -->
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.23.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- add an implamentation for Jax-RS instead of using Servlet -->
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
