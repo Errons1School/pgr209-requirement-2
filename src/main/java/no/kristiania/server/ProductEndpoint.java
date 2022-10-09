@@ -12,6 +12,6 @@ public class ProductEndpoint{
     private final static List<Product> products = new ArrayList<>();
     @GET
     public Response getAllItems(){
-        return Response.ok().build();
+        return Response.ok("hei").build();
     }
 }

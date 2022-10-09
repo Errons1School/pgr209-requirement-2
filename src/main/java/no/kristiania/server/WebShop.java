@@ -23,7 +23,7 @@ public class WebShop {
 
         var webAppContext = new WebAppContext(resources, "/");
         var servletHolder =webAppContext.addServlet(ServletContainer.class,"/api/*");
-        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.sever");
+        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
 
         server.setHandler(webAppContext);
     }
