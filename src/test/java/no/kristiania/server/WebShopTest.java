@@ -47,10 +47,17 @@ class WebShopTest {
                 .add("category","pc")
                 .add("img","")
                 .add("description","a laptop")
-                .add("price",299).add("stock",100).toString().getBytes(StandardCharsets.UTF_8)
+                .add("price",299)
+                .add("stock",100)
+                .toString()
+                .getBytes(StandardCharsets.UTF_8)
 
         );
-        assertThat(postConnection.getResponseCode()).as("check if POST worked").isEqualTo(200);
+        assertThat(postConnection.getResponseCode())
+                .as("check if POST worked")
+                .isEqualTo(200);
+
+
         var getConnection = openConnection("/api/products");
         assertThat(getConnection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
