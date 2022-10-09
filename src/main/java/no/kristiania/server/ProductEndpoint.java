@@ -38,6 +38,8 @@ public class ProductEndpoint{
                     .add("stock", prod.getStock())
             );
         }
+
+        System.out.println("Successful get request!");
         return Response.ok(result.build().toString()).build();
     }
 
@@ -56,7 +58,7 @@ public class ProductEndpoint{
         );
 
         products.add(tmpProd);
-        System.out.println("Added Product!" + tmpProd.getName());
+        System.out.println("Added Product! Name:'" + tmpProd.getName() + "'");
         return Response.ok().build();
 
     }

@@ -25,13 +25,13 @@ function AddProduct() {
     const [category, setCategory] = useState("");
     const [img, setImg] = useState("");
     const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("0");
-    const [stock, setStock] = useState("0");
+    const [price, setPrice] = useState(0);
+    const [stock, setStock] = useState(0);
 
     async function handleOnSubmit(event) {
         event.preventDefault();
         await fetch("/api/products", {
-           methode: "post",
+            method: "POST",
             body: JSON.stringify({name, category, img, description, price, stock}),
             headers: {
                "Content-Type": "application/json"
@@ -48,8 +48,8 @@ function AddProduct() {
                 <input value={category} type="text" onChange={(e) => setCategory(e.target.value)}/>
                 <input value={img} type="text" onChange={(e) => setImg(e.target.value)}/>
                 <input value={description} type="text" onChange={(e) => setDescription(e.target.value)}/>
-                <input value={price} type="text" onChange={(e) => setPrice(e.target.value)}/>
-                <input value={stock} type="text" onChange={(e) => setStock(e.target.value)}/>
+                <input value={price} type="number" onChange={(e) => setPrice(parseInt(e.target.value))}/>
+                <input value={stock} type="number" onChange={(e) => setStock(parseInt(e.target.value))}/>
                 <button>Add new Product</button>
             </form>
 
