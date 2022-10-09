@@ -17,9 +17,9 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
 
 * Programmet
   * [x] En main metode som starter Jetty-serveren med Jersey sin ContentServlet og et Endpoint
-  * [] En React applikasjon under src/main/<something> som bygger til src/main/resources med Vite eller Parcel
+  * [x] En React applikasjon under src/main/<something> som bygger til src/main/resources med Vite eller Parcel
   * [x] En JUnit test som sjekker GET
-  * [ ] En JUnit test som sjekker POST
+  * [x] En JUnit test som sjekker POST
   * [ ] Valgfritt - vi lærer dette neste tirsdag: Automatisk bygging av React-applikasjonen med frontend-maven-plugin
   * [ ] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
 * Innlevering
@@ -30,7 +30,7 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [ ] Dere har merget pull en pull request
   * [ ] Dere har mottatt code review fra medstudenter på feedback-pull request
   * [x] `.idea`, `*.iml` og `target` er lagt til i .gitignore og ikke sjekket inn
-  * [ ] Github Actions rapporterer at 100% av testene kjører grønt
+  * [x] Github Actions rapporterer at 100% av testene kjører grønt
 * Kode
   * [ ] Koden skal være korrekt strukturert etter Maven sine standarder (koden skal ligge under `src/main/java` og tester under `src/test/java`)
   * [ ] Klassene skal ligge i Java packages
@@ -38,5 +38,5 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [ ] Koden skal være korrekt indentert
   * [ ] Dersom dere har valgt en stor oppgave behøver dere ikke løse hele. 6-7 tester er tilstrekkelig
 * README-fil
-  * [ ] Korrekt GitHub Actions status badge
+  * [x] Korrekt GitHub Actions status badge
   * [ ] Link til code review dere har gjort for medstudenter med minst én issue fra hver av dere
