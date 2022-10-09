@@ -1,3 +1,4 @@
+[![Java CI with Maven](https://github.com/kristiania-pgr209-2022/pgr209-2-freebattie/actions/workflows/maven.yml/badge.svg)](https://github.com/kristiania-pgr209-2022/pgr209-2-freebattie/actions/workflows/maven.yml)
 # Innlevering 2: Programmeringsferdigheter
 
 ## Oppgave
@@ -15,9 +16,9 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
 ## Krav til innlevering
 
 * Programmet
-  * [ ] En main metode som starter Jetty-serveren med Jersey sin ContentServlet og et Endpoint
-  * [ ] En React applikasjon under src/main/<something> som bygger til src/main/resources med Vite eller Parcel
-  * [ ] En JUnit test som sjekker GET
+  * [x] En main metode som starter Jetty-serveren med Jersey sin ContentServlet og et Endpoint
+  * [] En React applikasjon under src/main/<something> som bygger til src/main/resources med Vite eller Parcel
+  * [x] En JUnit test som sjekker GET
   * [ ] En JUnit test som sjekker POST
   * [ ] Valgfritt - vi lærer dette neste tirsdag: Automatisk bygging av React-applikasjonen med frontend-maven-plugin
   * [ ] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
@@ -28,7 +29,7 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
 * Github
   * [ ] Dere har merget pull en pull request
   * [ ] Dere har mottatt code review fra medstudenter på feedback-pull request
-  * [ ] `.idea`, `*.iml` og `target` er lagt til i .gitignore og ikke sjekket inn
+  * [x] `.idea`, `*.iml` og `target` er lagt til i .gitignore og ikke sjekket inn
   * [ ] Github Actions rapporterer at 100% av testene kjører grønt
 * Kode
   * [ ] Koden skal være korrekt strukturert etter Maven sine standarder (koden skal ligge under `src/main/java` og tester under `src/test/java`)

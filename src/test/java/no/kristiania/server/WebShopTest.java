@@ -41,6 +41,7 @@ class WebShopTest {
 
     private HttpURLConnection openConnection(String spec) throws IOException {
         return (HttpURLConnection) new URL(server.getURL(), spec).openConnection();
+
     }
 
 }
