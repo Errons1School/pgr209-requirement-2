@@ -14,7 +14,6 @@ import java.util.List;
 public class ProductEndpoint{
 
     private final static List<Product> products = new ArrayList<>();
-
     static {
         products.add(new Product(
                 "Laptop",
@@ -41,22 +40,24 @@ public class ProductEndpoint{
         }
         return Response.ok(result.build().toString()).build();
     }
+
     @POST
     public Response addProducts(String body){
         var reader = new StringReader(body);
         var jsonBody = Json.createReader(reader).readObject();
 
-        products.add(
-                new Product(
+        var tmpProd = new Product(
                 jsonBody.getString("name"),
                 jsonBody.getString("category"),
                 jsonBody.getString("img"),
                 jsonBody.getString("description"),
                 jsonBody.getInt("price"),
-                jsonBody.getInt("stock"))
+                jsonBody.getInt("stock")
         );
 
-       return Response.ok().build();
+        products.add(tmpProd);
+        System.out.println("Added Product!" + tmpProd.getName());
+        return Response.ok().build();
 
     }
 

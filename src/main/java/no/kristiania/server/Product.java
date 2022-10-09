@@ -1,12 +1,12 @@
 package no.kristiania.server;
 
 public class Product {
-    String name;
-    String category;
-    String img;
-    String description;
-    int price;
-    int stock;
+    private String name;
+    private String category;
+    private String img;
+    private String description;
+    private int price;
+    private int stock;
 
     public Product(String name, String category, String img, String description, int price, int stock) {
         this.name = name;

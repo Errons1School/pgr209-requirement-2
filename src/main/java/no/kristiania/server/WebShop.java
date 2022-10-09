@@ -75,8 +75,6 @@ public class WebShop {
     public static void main(String[] args) throws Exception {
         var serv = new WebShop(8080);
         serv.start();
-
     }
-
 
 }
