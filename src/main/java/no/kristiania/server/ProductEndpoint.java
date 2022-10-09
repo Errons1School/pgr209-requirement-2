@@ -1,7 +1,6 @@
 package no.kristiania.server;
 
 import jakarta.json.Json;
-import jakarta.json.JsonObject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -44,15 +43,18 @@ public class ProductEndpoint{
     }
     @POST
     public Response addProducts(String body){
-        var stringReader = new StringReader(body);
-        JsonObject jsonBody = Json.createReader(new StringReader(body)).readObject();
+        var reader = new StringReader(body);
+        var jsonBody = Json.createReader(reader).readObject();
 
-        products.add(new Product(jsonBody.getString("name"),
+        products.add(
+                new Product(
+                jsonBody.getString("name"),
                 jsonBody.getString("category"),
                 jsonBody.getString("img"),
                 jsonBody.getString("description"),
                 jsonBody.getInt("price"),
-                jsonBody.getInt("stock")));
+                jsonBody.getInt("stock"))
+        );
 
        return Response.ok().build();
 

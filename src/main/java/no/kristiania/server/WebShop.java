@@ -2,6 +2,7 @@ package no.kristiania.server;
 
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 
@@ -9,6 +10,8 @@ import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -19,13 +22,44 @@ public class WebShop {
 
     public WebShop(int port) {
         this.server = new Server(port);
-        var resources = Resource.newClassPathResource("/");
 
-        var webAppContext = new WebAppContext(resources, "/");
-        var servletHolder =webAppContext.addServlet(ServletContainer.class,"/api/*");
-        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
+//        var resources = Resource.newClassPathResource("/");
+//        var webAppContext = new WebAppContext(resources, "/");
+//        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
+//        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
 
-        server.setHandler(webAppContext);
+        server.setHandler(createWebApp());
+    }
+
+    private static WebAppContext createWebApp() {
+        var webAppContext = new WebAppContext();
+        webAppContext.setContextPath("/");
+
+//        resource that is read from .../target/classes/...
+        var resources = Resource.newClassPathResource("/webapp");
+        try {
+//            resources that is read from .../src/main/resources...
+            var sourceDir = new File(resources.getFile().getAbsoluteFile().toString()
+                    .replace('\\', '/')
+                    .replace("target/classes", "src/main/resources")
+            );
+//            Use this for making jetty not locking down the files we use to make webpages
+            if (sourceDir.isDirectory()) {
+
+                var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
+                servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
+
+                webAppContext.setBaseResource(Resource.newResource(sourceDir));
+                webAppContext.setInitParameter(DefaultServlet.CONTEXT_INIT + "useFileMappedBuffer", "false");
+            }
+
+        } catch (IOException e){
+//            If something should go wrong use .../target/classes/*resources*
+            webAppContext.setBaseResource(resources);
+            logger.warn("Resources is read from target-folder");
+        }
+
+        return webAppContext;
     }
 
 
