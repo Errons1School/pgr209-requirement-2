@@ -1,6 +1,5 @@
 package no.kristiania.server;
 
-
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.util.resource.Resource;
@@ -22,21 +21,16 @@ public class WebShop {
 
     public WebShop(int port) {
         this.server = new Server(port);
-
-//        var resources = Resource.newClassPathResource("/");
-//        var webAppContext = new WebAppContext(resources, "/");
-//        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
-//        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
-
         server.setHandler(createWebApp());
     }
 
     private static WebAppContext createWebApp() {
         var webAppContext = new WebAppContext();
         webAppContext.setContextPath("/");
+        var resources = Resource.newClassPathResource("/webapp");
 
 //        resource that is read from .../target/classes/...
-        var resources = Resource.newClassPathResource("/webapp");
+
         try {
 //            resources that is read from .../src/main/resources...
             var sourceDir = new File(resources.getFile().getAbsoluteFile().toString()
@@ -45,9 +39,6 @@ public class WebShop {
             );
 //            Use this for making jetty not locking down the files we use to make webpages
             if (sourceDir.isDirectory()) {
-
-                var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
-                servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
 
                 webAppContext.setBaseResource(Resource.newResource(sourceDir));
                 webAppContext.setInitParameter(DefaultServlet.CONTEXT_INIT + "useFileMappedBuffer", "false");
@@ -58,6 +49,9 @@ public class WebShop {
             webAppContext.setBaseResource(resources);
             logger.warn("Resources is read from target-folder");
         }
+        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
+        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
+
 
         return webAppContext;
     }
