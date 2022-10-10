@@ -1,4 +1,4 @@
 /.idea/
 /target/
-/src/main/resources/
+*.iml
 /src/main/resources/webapp
