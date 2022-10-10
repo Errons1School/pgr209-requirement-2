@@ -22,18 +22,16 @@ public class WebShop {
 
     public WebShop(int port) {
         this.server = new Server(port);
-
-//        var resources = Resource.newClassPathResource("/");
-//        var webAppContext = new WebAppContext(resources, "/");
-//        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
-//        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
-
         server.setHandler(createWebApp());
     }
 
     private static WebAppContext createWebApp() {
         var webAppContext = new WebAppContext();
         webAppContext.setContextPath("/");
+
+        //setup Jersey to handel calls too /api/* from ProductEndpoint
+        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
+        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
 
 //        resource that is read from .../target/classes/...
         var resources = Resource.newClassPathResource("/webapp");
@@ -45,9 +43,6 @@ public class WebShop {
             );
 //            Use this for making jetty not locking down the files we use to make webpages
             if (sourceDir.isDirectory()) {
-
-                var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
-                servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
 
                 webAppContext.setBaseResource(Resource.newResource(sourceDir));
                 webAppContext.setInitParameter(DefaultServlet.CONTEXT_INIT + "useFileMappedBuffer", "false");

@@ -16,13 +16,62 @@ public class ProductEndpoint{
     private final static List<Product> products = new ArrayList<>();
     static {
         products.add(new Product(
-                "Laptop",
-                "Computers",
+                "acer",
+                "laptop",
                 "",
                 "This is a good laptop",
                 14955,
                 15
         ));
+        products.add(new Product(
+                "mac air",
+                "laptop",
+                "",
+                "best there is",
+                22955,
+                2
+        ));
+        products.add(new Product(
+                "legion",
+                "laptop",
+                "",
+                "best there is",
+                22955,
+                2
+        ));
+        products.add(new Product(
+                "racer naga",
+                "mouse",
+                "",
+                "best there is",
+                255,
+                10
+        ));
+        products.add(new Product(
+                "dell E200",
+                "mouse",
+                "",
+                "best there is",
+                255,
+                10
+        ));
+        products.add(new Product(
+                "RTX3090",
+                "gpu",
+                "",
+                "best there is",
+                15000,
+                100
+        ));
+        products.add(new Product(
+                "RTX4090",
+                "gpu",
+                "",
+                "best there is",
+                25500,
+                1
+        ));
+
     }
 
     @GET
