@@ -6,18 +6,14 @@ import {createHashHistory} from 'history';
 const history = createHashHistory();
 
 function FrontPage() {
-    useEffect(() => {
-        window.onpageshow = function (event) {
-            if (event.persisted) {
-                window.location.reload();
-            }
-        };
-    }, [])
+
     return (
         <div>
             <h1>Best webshop off all time!!!</h1>
-            <Link to={"/shop"}>Show all items</Link><br/>
-            <Link to={"/addproduct"}>Add product</Link>
+            <button><Link to={"/shop"}>Show all items</Link></button>
+            <br/>
+            <br/>
+            <button><Link to={"/addproduct"}>Add product</Link></button>
         </div>
     )
 }
@@ -47,9 +43,7 @@ function ListAllProduct() {
 
     return (
         <div>
-
             <h1>Here are the shop!</h1>
-
             {products.map(p =>
                 <div class="container">
                     <div class="product-details">
