@@ -47,7 +47,7 @@
                             "install", so unless you need to run some other npm command,
                             you can remove this whole <configuration> section.
                             -->
-                            <arguments>run dev</arguments>
+                            <arguments>run build</arguments>
                         </configuration>
                     </execution>
 
