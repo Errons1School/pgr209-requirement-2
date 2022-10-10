@@ -38,6 +38,13 @@ class WebShopTest {
                 .contains("[{\"name\":\"acer\",\"category\":\"laptop\"");
     }
     @Test
+    public void getIndexHtmlTitleTest() throws Exception {
+        var connection = openConnection("/");
+        assertThat(connection.getInputStream())
+                .asString(StandardCharsets.UTF_8)
+                .contains("<title>shop</title>");
+    }
+    @Test
     public void PostRequestAddProductTest() throws Exception {
         var postConnection = openConnection("/api/products");
         postConnection.setRequestMethod("POST");
