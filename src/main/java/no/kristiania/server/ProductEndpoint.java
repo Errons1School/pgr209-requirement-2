@@ -5,13 +5,14 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
+
 import java.io.StringReader;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Path("/products")
-public class ProductEndpoint{
+public class ProductEndpoint {
 
     private final static List<Product> products = new ArrayList<>();
 
@@ -36,7 +37,7 @@ public class ProductEndpoint{
     }
 
     @POST
-    public Response addProducts(String body){
+    public Response addProducts(String body) {
         var reader = new StringReader(body);
         var jsonBody = Json.createReader(reader).readObject();
 
@@ -54,6 +55,7 @@ public class ProductEndpoint{
         return Response.ok().build();
 
     }
+
     static {
         products.add(new Product(
                 "acer",

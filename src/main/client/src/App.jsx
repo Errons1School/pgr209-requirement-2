@@ -1,23 +1,24 @@
 import {useEffect, useState} from 'react'
 import './App.css'
 import {HashRouter, Link, Route, Router, Routes, useNavigate} from "react-router-dom";
-import { createHashHistory } from 'history';
+import {createHashHistory} from 'history';
+
 const history = createHashHistory();
 
 function FrontPage() {
     useEffect(() => {
-        window.onpageshow = function(event) {
+        window.onpageshow = function (event) {
             if (event.persisted) {
                 window.location.reload();
             }
         };
     }, [])
     return (
-    <div>
-        <h1>Best webshop off all time!!!</h1>
-        <Link to={"/shop"}>Show all items</Link><br/>
-        <Link to={"/addproduct"}>Add product</Link>
-    </div>
+        <div>
+            <h1>Best webshop off all time!!!</h1>
+            <Link to={"/shop"}>Show all items</Link><br/>
+            <Link to={"/addproduct"}>Add product</Link>
+        </div>
     )
 }
 
@@ -27,10 +28,10 @@ function ListAllProduct() {
     const navigate = useNavigate();
 
     useEffect(async () => {
-            const res = await fetch("/api/products");
-            setProducts(await res.json());
-            setLoading(false);
-        },[]);
+        const res = await fetch("/api/products");
+        setProducts(await res.json());
+        setLoading(false);
+    }, []);
 
     if (loading) {
         return (
@@ -47,27 +48,24 @@ function ListAllProduct() {
     return (
         <div>
 
-                <h1>Here are the shop!</h1>
+            <h1>Here are the shop!</h1>
 
-                    {products.map(p =>
-                        <div class="container">
-                            <div class="product-details">
-
-                                <p>name: {p.name}</p>
-                                <p>category: {p.category}</p>
-                                <p>details: <p>{p.description}</p></p>
-                                <p>price: {p.price}</p>
-                                <p>stock: {p.stock}</p>
-
-
-                                </div>
-                            <div class="product-image">
-                                <img
-                                    src={`${p.img}`}
-                                    alt=""/>
-                            </div>
-                        </div>
-                        )}
+            {products.map(p =>
+                <div class="container">
+                    <div class="product-details">
+                        <p>name: {p.name}</p>
+                        <p>category: {p.category}</p>
+                        <p>details: <p>{p.description}</p></p>
+                        <p>price: {p.price}</p>
+                        <p>stock: {p.stock}</p>
+                    </div>
+                    <div class="product-image">
+                        <img
+                            src={`${p.img}`}
+                            alt=""/>
+                    </div>
+                </div>
+            )}
             <button onClick={handelClick}>Back</button>
         </div>
 
@@ -89,7 +87,7 @@ function AddProduct() {
             method: "POST",
             body: JSON.stringify({name, category, img, description, price, stock}),
             headers: {
-               "Content-Type": "application/json"
+                "Content-Type": "application/json"
             }
         });
 
@@ -101,23 +99,25 @@ function AddProduct() {
             <h1>Add product to the store!</h1>
 
             <form onSubmit={handleOnSubmit}>
-                <div >
+                <div>
                     Product name:<input value={name} type="text" onChange={(e) => setName(e.target.value)}/>
                 </div>
                 <div>
-                    product category:<input value={category} type="text" onChange={(e) => setCategory(e.target.value)}/></div>
-               <div>
-                   img:<input value={img} type="text" onChange={(e) => setImg(e.target.value)}/>
-               </div>
+                    product category:<input value={category} type="text" onChange={(e) => setCategory(e.target.value)}/>
+                </div>
                 <div>
-                    description:<input value={description} type="text" onChange={(e) => setDescription(e.target.value)}/>
+                    img:<input value={img} type="text" onChange={(e) => setImg(e.target.value)}/>
+                </div>
+                <div>
+                    description:<input value={description} type="text"
+                                       onChange={(e) => setDescription(e.target.value)}/>
                 </div>
                 <div>
                     price:<input value={price} type="number" onChange={(e) => setPrice(parseInt(e.target.value))}/>
                 </div>
-               <div>
-                   In stock:<input value={stock} type="number" onChange={(e) => setStock(parseInt(e.target.value))}/>
-               </div>
+                <div>
+                    In stock:<input value={stock} type="number" onChange={(e) => setStock(parseInt(e.target.value))}/>
+                </div>
 
                 <button>Add new Product</button>
             </form>
@@ -129,16 +129,16 @@ function AddProduct() {
 function App() {
 
     return (
-    <div className="App">
-        <Router basename="/" history={history} location={"/"}>...</Router>
-        <HashRouter>
-            <Routes>
-                <Route path={"/*"} element={<FrontPage />} />
-                <Route path={"/addproduct"} element={<AddProduct />}/>
-                <Route path={"/shop"} element={<ListAllProduct />}/>
-            </Routes>
-        </HashRouter>
-    </div>
+        <div className="App">
+            <Router basename="/" history={history} location={"/"}>...</Router>
+            <HashRouter>
+                <Routes>
+                    <Route path={"/*"} element={<FrontPage/>}/>
+                    <Route path={"/addproduct"} element={<AddProduct/>}/>
+                    <Route path={"/shop"} element={<ListAllProduct/>}/>
+                </Routes>
+            </HashRouter>
+        </div>
     )
 
 }

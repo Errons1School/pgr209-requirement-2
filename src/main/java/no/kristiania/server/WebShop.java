@@ -44,13 +44,13 @@ public class WebShop {
                 webAppContext.setInitParameter(DefaultServlet.CONTEXT_INIT + "useFileMappedBuffer", "false");
             }
 
-        } catch (IOException e){
+        } catch (IOException e) {
 //            If something should go wrong use .../target/classes/*resources*
             webAppContext.setBaseResource(resources);
             logger.warn("Resources is read from target-folder");
         }
-        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
-        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
+        var servletHolder = webAppContext.addServlet(ServletContainer.class, "/api/*");
+        servletHolder.setInitParameter("jersey.config.server.provider.packages", "no.kristiania.server");
 
 
         return webAppContext;
