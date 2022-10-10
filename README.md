@@ -20,7 +20,8 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [x] En React applikasjon under src/main/<something> som bygger til src/main/resources med Vite eller Parcel
   * [x] En JUnit test som sjekker GET
   * [x] En JUnit test som sjekker POST
-  * [ ] Valgfritt - vi lærer dette neste tirsdag: Automatisk bygging av React-applikasjonen med frontend-maven-plugin
+  * [x] Valgfritt - vi lærer dette neste tirsdag: Automatisk bygging av React-applikasjonen med frontend-maven-plugin
+    * kjør med mvn clean install for å innstalere node, npm og starte npm run dev
   * [ ] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
 * Innlevering
   * [ ] Begge har levert link til Github Repository i Canvas
