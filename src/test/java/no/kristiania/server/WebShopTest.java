@@ -35,7 +35,7 @@ class WebShopTest {
         var connection = openConnection("/api/products");
         assertThat(connection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
-                .contains("[{\"name\":\"Laptop\",\"category\":\"Computers\"");
+                .contains("[{\"name\":\"acer\",\"category\":\"laptop\"");
     }
     @Test
     public void PostRequestAddProductTest() throws Exception {
