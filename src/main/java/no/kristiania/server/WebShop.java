@@ -1,6 +1,5 @@
 package no.kristiania.server;
 
-
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.util.resource.Resource;
@@ -28,13 +27,10 @@ public class WebShop {
     private static WebAppContext createWebApp() {
         var webAppContext = new WebAppContext();
         webAppContext.setContextPath("/");
-
-        //setup Jersey to handel calls too /api/* from ProductEndpoint
-        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
-        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
+        var resources = Resource.newClassPathResource("/webapp");
 
 //        resource that is read from .../target/classes/...
-        var resources = Resource.newClassPathResource("/webapp");
+
         try {
 //            resources that is read from .../src/main/resources...
             var sourceDir = new File(resources.getFile().getAbsoluteFile().toString()
@@ -53,6 +49,9 @@ public class WebShop {
             webAppContext.setBaseResource(resources);
             logger.warn("Resources is read from target-folder");
         }
+        var servletHolder = webAppContext.addServlet(ServletContainer.class,"/api/*");
+        servletHolder.setInitParameter("jersey.config.server.provider.packages","no.kristiania.server");
+
 
         return webAppContext;
     }
