@@ -47,6 +47,20 @@
                             "install", so unless you need to run some other npm command,
                             you can remove this whole <configuration> section.
                             -->
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm run</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+
+                        <configuration>
+                            <!-- optional: The default argument is actually
+                            "install", so unless you need to run some other npm command,
+                            you can remove this whole <configuration> section.
+                            -->
                             <arguments>run dev</arguments>
                         </configuration>
                     </execution>
