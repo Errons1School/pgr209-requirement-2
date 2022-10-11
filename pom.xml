@@ -9,12 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <profiles>
 
-        <profile>
+    <profile>
             <id>active-on-windows-10</id>
             <build>
                 <plugins>
                     <plugin>
-
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
 
@@ -22,12 +21,10 @@
                         <configuration>
                             <workingDirectory>src/main/client</workingDirectory>
                             <nodeVersion>v14.17.0</nodeVersion>
-
                         </configuration>
+
                         <executions>
-
                             <execution>
-
                                 <!-- optional: you don't really need execution ids, but it looks nice in your build log. -->
                                 <id>install node and npm</id>
                                 <goals>
@@ -36,6 +33,7 @@
                                 <!-- optional: default phase is "generate-resources" -->
                                 <phase>generate-resources</phase>
                             </execution>
+
                             <execution>
                                 <id>npm install</id>
                                 <goals>
@@ -50,6 +48,7 @@
                                     <arguments>install</arguments>
                                 </configuration>
                             </execution>
+
                             <execution>
                                 <id>npm run dev</id>
                                 <goals>
@@ -64,10 +63,7 @@
                                     <arguments>run dev</arguments>
                                 </configuration>
                             </execution>
-
-
                         </executions>
-
                     </plugin>
                 </plugins>
             </build>
@@ -79,13 +75,11 @@
                     <version>10.0</version>
                 </os>
             </activation>
-
         </profile>
     </profiles>
+
     <build>
-
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -93,7 +87,6 @@
             </plugin>
 
             <plugin>
-
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
 
@@ -101,12 +94,10 @@
                 <configuration>
                     <workingDirectory>src/main/client</workingDirectory>
                     <nodeVersion>v14.17.0</nodeVersion>
-
                 </configuration>
+
                 <executions>
-
                     <execution>
-
                         <!-- optional: you don't really need execution ids, but it looks nice in your build log. -->
                         <id>install node and npm</id>
                         <goals>
@@ -115,6 +106,7 @@
                         <!-- optional: default phase is "generate-resources" -->
                         <phase>generate-resources</phase>
                     </execution>
+
                     <execution>
                         <id>npm install</id>
                         <goals>
@@ -129,6 +121,7 @@
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>npm run build</id>
                         <goals>
@@ -143,44 +136,43 @@
                             <arguments>run build</arguments>
                         </configuration>
                     </execution>
-
-            </executions>
-
+                </executions>
             </plugin>
         </plugins>
-
     </build>
 
     <dependencies>
-
         <dependency>
-
             <!-- add jetty ontop of socket -->
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
             <version>11.0.12</version>
         </dependency>
+
         <dependency>
             <!-- add jakarta.json API parsing (and using parsson as implamentatio  -->
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>
             <version>2.1.1</version>
         </dependency>
+
         <dependency>
             <!-- use parsson as implamentation for Jakarta.json API -->
             <groupId>org.eclipse.parsson</groupId>
             <artifactId>parsson</artifactId>
             <version>1.1.1</version>
         </dependency>
+
         <dependency>
             <groupId>jakarta.activation</groupId>
             <artifactId>jakarta.activation-api</artifactId>
             <version>2.1.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.eirslett</groupId>
             <artifactId>frontend-maven-plugin</artifactId>
-            <version>1.12.1</version>
+            <version>1.11.3</version>
         </dependency>
 
         <dependency>
@@ -189,6 +181,7 @@
             <artifactId>logevents</artifactId>
             <version>0.3.3</version>
         </dependency>
+
         <dependency>
             <!-- add Junit testing to the project -->
             <groupId>org.junit.jupiter</groupId>
@@ -196,6 +189,7 @@
             <version>5.9.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <!-- add asertJ for asserting -->
             <groupId>org.assertj</groupId>
@@ -203,24 +197,24 @@
             <version>3.23.1</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <!-- add an implamentation for Jax-RS instead of using Servlet -->
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
             <version>3.0.8</version>
         </dependency>
+
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <version>3.0.8</version>
         </dependency>
-
     </dependencies>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
-
 
 </project>
