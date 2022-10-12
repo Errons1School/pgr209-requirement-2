@@ -22,7 +22,7 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [x] En JUnit test som sjekker POST
   * [x] Valgfritt - vi lærer dette neste tirsdag: Automatisk bygging av React-applikasjonen med frontend-maven-plugin
     * kjør med mvn clean install for å innstalere node, npm og starte npm run dev
-  * [ ] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
+  * [x] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
 * Innlevering
   * [ ] Begge har levert link til Github Repository i Canvas
   * [x] Koden er sjekket inn på et repository på https://github.com/kristiania-pgr209-2021
