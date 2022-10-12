@@ -27,7 +27,6 @@ class WebShopTest {
         assertThat(connection.getResponseCode())
                 .as("check for 200")
                 .isEqualTo(200);
-
     }
 
     @Test
