@@ -1,6 +1,8 @@
 [![Java CI with Maven](https://github.com/kristiania-pgr209-2022/pgr209-2-freebattie/actions/workflows/maven.yml/badge.svg)](https://github.com/kristiania-pgr209-2022/pgr209-2-freebattie/actions/workflows/maven.yml)
 # Innlevering 2: Programmeringsferdigheter
 
+## Link til code review
+####  [Bjarte](https://github.com/kristiania-pgr209-2022/pgr209-2-Simpada/pull/1#discussion_r994318321)
 ## Oppgave
 
 Dere skal lage en Jetty-server som kan starte en React applikasjon og som benytter JAX-RS med Jersey for å behandle en GET request og en POST request. Applikasjonen skal være en webshop som kan registrere og liste varer i en nettbutikk.
