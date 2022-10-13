@@ -36,6 +36,7 @@ class WebShopTest {
                 .asString(StandardCharsets.UTF_8)
                 .contains("[{\"name\":\"acer\",\"category\":\"laptop\"");
     }
+
     @Test
     public void getIndexHtmlTitleTest() throws Exception {
         var connection = openConnection("/");

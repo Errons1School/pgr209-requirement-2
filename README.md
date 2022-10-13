@@ -3,6 +3,7 @@
 
 ## Link til code review
 ####  [Bjarte](https://github.com/kristiania-pgr209-2022/pgr209-2-Simpada/pull/1#discussion_r994318321)
+####  [Snorre](https://github.com/kristiania-pgr209-2022/pgr209-2-Simpada/pull/1#pullrequestreview-1140713789)
 ## Oppgave
 
 Dere skal lage en Jetty-server som kan starte en React applikasjon og som benytter JAX-RS med Jersey for å behandle en GET request og en POST request. Applikasjonen skal være en webshop som kan registrere og liste varer i en nettbutikk.
@@ -26,7 +27,7 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
     * kjør med mvn clean install for å innstalere node, npm og starte npm run dev
   * [x] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
 * Innlevering
-  * [ ] Begge har levert link til Github Repository i Canvas
+  * [x] Begge har levert link til Github Repository i Canvas
   * [x] Koden er sjekket inn på et repository på https://github.com/kristiania-pgr209-2021
   * [x] GitHub repository er private. Dere skal gi tilgang til de som gir code review
 * Github
@@ -42,4 +43,4 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [x] Dersom dere har valgt en stor oppgave behøver dere ikke løse hele. 6-7 tester er tilstrekkelig
 * README-fil
   * [x] Korrekt GitHub Actions status badge
-  * [ ] Link til code review dere har gjort for medstudenter med minst én issue fra hver av dere
+  * [x] Link til code review dere har gjort for medstudenter med minst én issue fra hver av dere
