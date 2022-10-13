@@ -32,7 +32,7 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [x] GitHub repository er private. Dere skal gi tilgang til de som gir code review
 * Github
   * [x] Dere har merget pull en pull request
-  * [ ] Dere har mottatt code review fra medstudenter på feedback-pull request
+  * [x] Dere har mottatt code review fra medstudenter på feedback-pull request
   * [x] `.idea`, `*.iml` og `target` er lagt til i .gitignore og ikke sjekket inn
   * [x] Github Actions rapporterer at 100% av testene kjører grønt
 * Kode
